@@ -8,8 +8,8 @@ import os
 client = MongoClient()
 directory = (os.path.split(os.path.realpath(__file__))[0]).split("\\")
 directory = "/".join(directory)+"/"
-# key = os.urandom(24)
-key = b'_5#y2L"F4Q8z\n\xec]/\xec\n/fd()\xde\xdc\n'
+key = os.urandom(24)
+# key = b'_5#y2L"F4Q8z\n\xec]/\xec\n/fd()\xde\xdc\n'
 
 
 def history(*f):
