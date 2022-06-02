@@ -66,8 +66,8 @@ def admin():
                 password[i] = c
             return render_template("admin/admin1.html", user=a, passwordList=password)
         password = request.form['Password']
-        if name == 'fumingzhe':
-            if password == 'tiancai521':
+        if name in ADMIN_USER:
+            if password == ADMIN_USER[name]:
                 session['gly'] = 'True'
                 b = list(client.user.login.find())
                 a = {}
