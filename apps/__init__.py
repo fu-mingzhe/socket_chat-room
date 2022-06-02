@@ -31,7 +31,7 @@ app.register_blueprint(app_translate)
 app.register_blueprint(app_test)
 
 
-DEBUG = True
+DEBUG = False
 HOST = "0.0.0.0"
 PORT = "5656"
 
