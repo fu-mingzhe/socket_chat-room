@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>幸运数字</title>
+    <!--引入css文件样式-->
+	<link rel="stylesheet" href="../static/css/test02.css">
+	<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+</head>
+<body>
+
+	<!--创建不同的模板变量名：t_name、t_number-->
+	<h3>{{ t_name }} 当前幸运数字：{{ t_number }}</h3>
+
+	<!--图片-->
+	<div class="res-box">
+		<img src="../static/images/{{ t_number }}.png">
+	</div>
+	<div class="img-box">
+		<img class="img1" src="../static/images/金蛋.png">
+		<img class="img2 hide" src="../static/images/砸开.png">
+	</div>
+
+
+	<script src="../static/js/egg.js"></script>
+</body>
+</html>

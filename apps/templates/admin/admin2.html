@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{user_name}}-用户信息</title>
+    <style>
+        *{
+            padding:0;
+        }
+        a{
+            text-decoration:none;
+            padding-left:20%;
+            color:blue;
+        }
+        h1{
+            text-align:center;
+        }
+</style>
+</head>
+<body>
+    <a href="/admin">返回</a>
+    <center>
+        <h1>用户-{{user_name}}</h1><br>
+        {% if user['权限'] == 1 %}
+            <h3>权限:未开通</h3><br>
+        {% elif user['权限'] == 2 %}
+            <h3>权限:已查封</h3><br>
+        {% elif user['权限'] == 3 %}
+            <h3>权限:已开通</h3><br>
+        {% endif %}
+        <h3>密码:{{password}}</h3><br>
+        <h3>用户id:{{user['用户id']}}</h3><br>
+        {% if num == 1 %}
+            <div style="color:blue;">
+                <h3>生日:{{user['生日']}}</h3>
+                <h3>年龄:{{user['年龄']}}</h3>
+                <h3>简介:{{user['简介']}}</h3>
+                <h3>手机号:{{user['手机号']}}</h3>
+                <h3>地址:{{user['地址']}}</h3>
+                <h3>邮箱:{{user['邮箱']}}</h3><br>
+            </div>
+        {% elif num == 2 %}
+            <h3 style="color:red;">暂未填写 生日 简介 手机号 地址</h3>
+        {% endif %}
+        <h2>历史记录</h2>
+        {% for i in user['历史记录'] %}
+            <h6>{{i}}</h6>
+        {% endfor %}
+    </center>
+</body>
+</html>

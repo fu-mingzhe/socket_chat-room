@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>翻译小程序</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="stylesheet" href="/static/css/h.css">
+	<link rel="stylesheet" href="/static/css/bulma.min.css">
+    <style>
+        .top{
+            width: 15px;
+            height: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>{{name}}</h1>
+    <div align="right">
+        <a href="/user/{{user_name}}" class="z">前往我的主页</a>
+    </div>
+    <div class="box" style="padding: 0;">
+        <a href="/">主页</a>
+        <a href="/music_get">音乐下载</a>
+        <a href="/translation" style="color:rgb(255,0,0);background-color:rgb(255,206,127);">翻译</a>
+        <a href="/filter">滤镜</a>
+		<!--<a href="/birthday">生日</a>-->
+		<a href="/other">其他</a>
+    </div>
+    <form action="/check_translation" method="get">
+        <div class="f">
+            <center>
+                <br>
+                {% if ty == 2%}
+				<div class="select is-small is-warning">
+                    <select name="from" required>
+                        <option value="自动检测">自动检测</option>
+                        {% for i in list %}
+                            <option value="{{i}}">{{i}}</option>
+                        {% endfor %}
+                    </select>
+				</div>
+                    <img src="../static/images/conversion.png" class="top">
+				<div class="select is-small is-warning">
+                    <select name="to">
+                        {% for i in list %}
+                            <option value="{{i}}">{{i}}</option>
+                        {% endfor %}
+                    </select>
+				</div><br><br>
+				<textarea class="column has-text-warning" cols="50" rows="10" placeholder="请输入要翻译的内容" style="resize: none;" name="nr" required></textarea><br><br>
+				<input type="submit" value="提交" class="column button is-rounded is-warning is-3"><br><br>
+                {% elif ty == 1 %}
+				<div class="select is-small is-warning">
+                    <select name="from" required>
+                        {% for i in list1 %}
+                            {% if i == _from %}
+                                <option value="{{i}}" selected>{{i}}</option>
+                            {% else %}
+                                <option value="{{i}}">{{i}}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+				</div>
+                    <img src="../static/images/conversion.png" class="top">
+				<div class="select is-small is-warning">
+                    <select name="to">
+                    {% for i in list %}
+                        {% if i == to %}
+                            <option value="{{i}}" selected>{{i}}</option>
+                        {% else %}
+                            <option value="{{i}}">{{i}}</option>
+                        {% endif %}
+                    {% endfor %}</select>
+				</div><br><br>
+                    <textarea class="column has-text-warning" cols="50" rows="10" placeholder="请输入要翻译的内容" style="resize: none;" name="nr" required>{{n}}</textarea><br><br>
+                    <input type="submit" value="提交" class="column button is-rounded is-warning is-3"><br><br>
+                    <textarea class="column has-background-warning-light has-text-warning" cols="50" rows="10" placeholder="请输入要翻译的内容" style="resize: none;" name="nr" readonly required>{{nr}}</textarea><br><br>
+                    <!--{% if a == 0 %}-->
+                        <!--<audio src="static/audio/user/{{user_name}}/{{count}}.wav" controls="controls"></audio>-->
+                    <!--{% elif a == 1 %}-->
+                        <!--<h6 style="color:red;">这种语言暂不支持语音~</h6>-->
+                    <!--{% endif %}-->
+                {% endif %}
+            </center>
+        </div>
+    </form>
+</body>
+</html>
+ 

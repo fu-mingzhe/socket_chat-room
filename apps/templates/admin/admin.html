@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>管理员登录</title>
+		<link rel="stylesheet" href="../static/css/login.css">
+	</head>
+	<body>
+		<div class="loginBox">
+			<center><h2>管理员登录</h2></center>
+			<form action="/admin" method='post'>
+				<div class="item">
+					<center>
+						<label>用户名</label>
+						<input type="text" required name="Name">
+					</center>
+				</div>
+				<div class="item1">
+					<center>
+						<label>密码&emsp;</label>
+						<input type="password" required name="Password">
+					</center>
+				</div>
+				<br>
+				<center><input type="submit" class="btn" value="登录"></center>
+			</form>
+			<br>
+			<center>
+				<p style="color: red;">{{text}}</p>
+				<p style="color: red;">{{text1}}</p>
+			</center>
+		</div>
+	</body>
+</html>

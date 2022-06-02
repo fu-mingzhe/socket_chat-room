@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>注册</title>
+		<link rel="stylesheet" href="../static/css/login.css">
+		<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+	</head>
+	<body>
+		<div class="loginBox">
+			<center><h2>注册</h2></center>
+			<form method='post'>
+				<div class="item">
+					<center>
+						<label>&emsp;&emsp;用户名&emsp;</label>
+						<input type="text" required name="Name" maxlength="12" value={{userName}}>
+					</center>
+				</div>
+				<div class="item1">
+					<center>
+						<label>&emsp;&emsp;密码&emsp;&emsp;</label>
+						<input type="password" required maxlength="20" name="Password" value={{userPassword}}>
+					</center>
+				</div>
+				<div class="item1">
+					<center>
+						<label>再次输入密码</label>
+						<input type="password" required name="Password2" maxlength="20" value={{userPassword2}}>
+					</center>
+				</div>
+				<center><input type="submit" class="btn" value="注册"></center>
+			</form>
+			<center><button class="btn1">
+				<a href="/login" style="color:black;">登录</a>
+			</button></center>
+			<br>
+			<center>
+				<p style="color: red;">{{text}}</p>
+				<p style="color: red;">{{text1}}</p>
+			</center>
+		</div>
+	</body>
+</html>

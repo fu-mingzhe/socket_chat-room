@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>抖音视频</title>
+	<link rel="stylesheet" href="/static/css/bulma.min.css">
+	</head>
+	<body>
+		<form action="/douyin" method="post">
+			<center>
+				<div class="p-6">
+					<span class="title has-text-success is-size-1 is-large">请选视频类型</span>
+					<div class="select is-success is-rounded is-large">
+						<select name="type" required class="is-hovered">
+							{% for i in nameList %}
+								{% if i==type %}
+									<option value="{{i}}" selected>{{i}}</option>
+								{% else %}
+									<option value="{{i}}">{{i}}</option>
+								{% endif %}
+							{% endfor %}
+						</select>
+					</div>
+				</div>
+				<input type="submit" value="确定" class="column button is-rounded is-success is-medium is-two-fifths">
+			</center>
+			{% if t==1 %}
+			<div class="p-6"><hr></div>
+			<center>
+				<span class="tag is-size-5 has-text-success">{{text}}</span>
+				<br><br>
+				<video src="{{video_url}}" controls width="30%" height="30%" poster="{{img_url}}"></video>
+			</center>
+			{% endif %}
+		</form>
+	</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>admin</title>
+    <style>
+        a{
+            text-decoration:none;
+            color:black;
+        }
+    </style>
+</head>
+<body>
+    <form action="/admin" method="post">
+        <input type="submit" name="Name" value="刷新">
+        <center>
+            <table border="1">
+                <tr>
+                    <th>用户名</th>
+                    <th>账号id</th>
+                    <th>用户密码</th>
+                    <th>账号权限</th>
+                    <th>修改权限</th>
+                    <th>删除用户</th>
+                </tr>
+                {% for ge in user %}
+                    <tr>
+                        <th><a href="/admin1/{{ge}}">{{ge}}</a></th>
+                        <th>{{user[ge][2]}}</th>
+                        <th>{{passwordList[ge]}}</th>
+                        {% if user[ge][1] == 1 %}
+                            <th>未开通权限</th>
+                        {% elif user[ge][1] == 2 %}
+                            <th>账号已查封</th>
+                        {% elif user[ge][1] == 3 %}
+                            <th>账号已开通</th>
+                        {% endif %}
+                        {% if user[ge][1] == 1 %}
+                            <th><input type="radio" checked name={{ge}} value="1">未开通账号
+                            <input type="radio"  name={{ge}} value="2">查封账号
+                            <input type="radio"  name={{ge}} value="3">开通账号</th>
+                        {% elif user[ge][1] == 2 %}
+                            <th><input type="radio" name={{ge}} value="1">未开通账号
+                            <input type="radio" checked  name={{ge}} value="2">查封账号
+                            <input type="radio"  name={{ge}} value="3">开通账号</th>
+                        {% elif user[ge][1] == 3 %}
+                            <th><input type="radio" name={{ge}} value="1">未开通账号
+                            <input type="radio"  name={{ge}} value="2">查封账号
+                            <input type="radio" checked  name={{ge}} value="3">开通账号</th>
+                        {% endif %}
+                        <th><input type="submit" name="Name" value="删除{{ge}}"></th>
+                    </tr>
+                {% endfor %}
+            </table>
+            <input style="" type="submit" value="提交" name="Name">
+        </center>
+    </form>
+</body>
+</html>

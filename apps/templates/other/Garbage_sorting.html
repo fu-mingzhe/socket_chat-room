@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="/static/css/bulma.min.css">
+		<title>垃圾分类</title>
+	</head>
+	<body>
+		<h1 class="title is-size-1 has-text-centered has-text-primary p-6">垃圾分类查询</h1>
+		<form action="/Garbage_sorting" method="post">
+			<div class="field has-addons" style="padding-left: 35%;">
+				<div class="control">
+					<input class="input has-text-left-desktop-only column is-large" name="Garbage" type="text" required maxlength="15" placeholder="请输入关键字" value="{{name}}">
+				</div>
+				<div class="control">
+					<input type="submit" class="button column is-primary is-large" value="查询">
+			  </div>
+			</div>
+		</form>
+		{% if ty==1 %}
+			<br>
+			<hr>
+			{% if sorting != "俺也不知道是什么垃圾~" %}
+			<h1 class="title is-size-2 p-4 has-text-success has-text-centered">{{name}}属于{{sorting}}</h1>
+			{% else %}
+			<h1 class="title is-size-2 p-4 has-text-success has-text-centered">俺也不知道{{name}}是什么垃圾~</h1>
+			{% endif %}
+		{% endif %}
+	</body>
+</html>

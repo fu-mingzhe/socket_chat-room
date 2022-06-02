@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<!--<meta http-equiv="refresh" content="1">-->
+	<title>welcome</title>
+	<!-- 使用link标签指定所用的CSS文件-->
+	<link rel="stylesheet" href="../static/css/welcome.css">
+	<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+</head>
+<body>
+
+	<!--【提示6】显示访问的时间，创建模板变量：t_time-->
+	<h3 >{{ t_time }}</h3>
+
+
+	<!-- <a>标签实现跳转链接，跳转到各个网页 -->
+	<a href="/quiz" class="a1">猿力家族 X 四大名著</a><br>
+	<a href="/home" class="a2">猿力空间</a><br>
+	<a href="/task" class="a2" >任务本</a><br>
+
+	<!-- 背景音乐 -->
+	<audio src="../static/audio/music.mp3" controls></audio>
+
+</body>
+</html>

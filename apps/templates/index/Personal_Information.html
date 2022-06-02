@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人信息填写</title>
+    <style>
+        .page-dog-wrap {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .page-dog-wrap form {
+            margin-top: 20px;
+        }
+
+        .page-dog-wrap input, textarea {
+            margin-bottom: 8px;
+        }
+
+        .page-info-error {
+             color: red;
+        }
+
+        a{
+            text-decoration:none;
+            padding-left: 20%;
+            color:blue;
+        }
+
+        span{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-dog-wrap">
+        {% if type == 1 %}
+        <center>
+            <h1>个人信息填写</h1>
+                <form action="/Personal_Information" method="post">
+                    <br>
+                    生日：<input type="date" name="sr" required>
+                    <br>
+                    手机号：<input type="text" placeholder="请输入手机号" name="phone" minlength="11" maxlength="11" required>
+                    <br>
+                    邮箱：<input type="email" placeholder="请输入邮箱" name="email" required>
+                    <br>
+                    地址：
+                    <br>
+                    <textarea placeholder="请输入地址" name="dz" cols="50" rows="2" required></textarea>
+                    <br>
+                    个人介绍：
+                    <br>
+                    <textarea placeholder="请输入个人介绍" name="grjj" cols="60" rows="10" required></textarea>
+                    <br>
+                    <input type="submit" value="提交">
+                </form>
+        </center>
+        {% elif type == 2 %}
+        <a href="/user/{{name}}">返回</a>
+        <center>
+            <h1>个人信息填写</h1>
+            <form action="/Personal_Information" method="post">
+                <br>
+                生日：<input type="date" name="sr" required value="{{cir['生日']}}">
+                <br>
+                手机号：<input type="text" placeholder="请输入手机号" name="phone" minlength="11" value="{{cir['手机号']}}" maxlength="11" required>
+                <br>
+                邮箱：<input type="email" placeholder="请输入邮箱" value="{{cir['邮箱']}}" name="email" required>
+                <br>
+                地址：
+                <br>
+                <textarea placeholder="请输入地址" name="dz" cols="50" rows="2" required>{{cir['地址']}}</textarea>
+                <br>
+                个人介绍：
+                <br>
+                <textarea placeholder="请输入个人介绍" name="grjj" cols="60" rows="10" required>{{cir['地址']}}</textarea>
+                <br>
+                <input type="submit" value="提交">
+            </form>
+        </center>
+        {% endif %}
+    </div>
+</body>
+</html>

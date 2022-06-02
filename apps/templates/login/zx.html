@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>注销账号</title>
+		<link rel="stylesheet" href="/static/css/login.css">
+		<style>
+			a{
+				text-decoration:none;
+				color:blue;
+        	}
+		</style>
+	</head>
+	<body>
+		<div class="loginBox">
+			<center><h2>{{name}}注销账户</h2></center>
+			<form method='post'>
+				<div class="item">
+				</div>
+                <br>
+				<div class="item1">
+					<center>
+						<label>密码&emsp;</label>
+						<input type="password" required name="Password" maxlength="20">
+					</center>
+				</div>
+                <br>
+				<center><input type="submit" class="btn" value="注销账户"></center>
+			</form>
+            <br>
+			<center>
+				<p style="color: red;">{{text}}</p>
+				<a href="/user/{{name}}">返回</a>
+			</center>
+		</div>
+	</body>
+</html>

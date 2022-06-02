@@ -1,0 +1,11 @@
+html,body{
+    height:100%;
+}
+
+body{
+    /* 设置背景图片*/
+    background-image: url("../images/quiz.png");
+    /* 设置背景图片大小覆盖整个背景区域 */
+    background-size: cover;
+
+}

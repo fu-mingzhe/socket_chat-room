@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>音乐下载器</title>
+    <link rel="stylesheet" href="/static/css/h.css">
+	<link rel="stylesheet" href="/static/css/bulma.min.css">
+    <style>
+        form {
+            padding-top:30px;
+            text-align: center;
+        }
+        .x {
+            padding-left: 50%;
+            text-align:center;
+        }
+    </style>
+	<script>
+		function jz(){
+			alert("加载的时间可能较长，请耐心等待~");
+		}
+	</script>
+</head>
+<body>
+    <a href="">{{a_name}}</a>
+    <div align="right">
+        <a href="/user/{{user_name}}" class="z">前往我的主页</a>
+    </div>
+    <div class="box" style="padding: 0;">
+        <a href="/">主页</a>
+        <a href="/music_get" style="color:rgb(255,0,0);background-color:rgb(255,206,127);">音乐下载</a>
+        <a href="/translation">翻译</a>
+        <a href="/filter">滤镜</a>
+		<!--<a href="/birthday">生日</a>-->
+		<a href="/other">其他</a>
+    </div>
+    <form action="/get_music" method="get" onsubmit="jz()">
+		<br>
+		<div class="field-body">
+			<span class="has-text-link has-text-centered has-text-weight-bold" style="padding-left: 30%">请输入你要下载的歌曲名：</span>
+			<input type="text" class="column input is-link is-3 is-small" name="music_name" maxlength="30" required value="{{m_name}}">
+		</div>
+		<br>
+        <br>
+		<br>
+		<center>
+			<input type="submit" class="column button is-5 is-medium is-rounded is-link" value="提交">
+		</center>
+	</form>
+    <br>
+	<br>
+    <!-- <a href="../static/dist/fmz音乐下载器(64位).exe" class="x"><h6>点击这里下载64位windows版</h6></a> -->
+    <!--<a href="../static/dist/fmz音乐下载器.exe" class="x"><h6>点击这里下载32位windows版</h6></a>-->
+</body>
+</html>

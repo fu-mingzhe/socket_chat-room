@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>滤镜小程序</title><link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+		<link rel="stylesheet" href="/static/css/h.css">
+		<link rel="stylesheet" href="/static/css/bulma.min.css">
+		<style>
+		    h3 {
+		        color:#81FF00
+		    }
+		    img {
+		        height:50%;
+		        width:50%;
+		    }
+		</style>
+		<script>
+			function jz(){
+				alert("加载的时间可能较长，请耐心等待~");
+			}
+		</script>
+	</head>
+	<body>
+		<h1>{{name}}</h1>
+		<a href="">{{a_name}}</a>
+		<div align="right">
+			<a href="/user/{{user_name}}" class="z">前往我的主页</a>
+		</div>
+		<div class="box" style="padding: 0;">
+			<a href="/">主页</a>
+			<a href="/music_get">音乐下载</a>
+			<a href="/translation">翻译</a>
+			<a href="/filter" style="color:rgb(255,0,0);background-color:rgb(255,206,127);">滤镜</a>
+			<!--<a href="/birthday">生日</a>-->
+			<a href="/other">其他</a>
+		</div>
+		<form action="/check_filter" method="post" onsubmit="jz()" enctype="multipart/form-data">
+			<center>
+				<br>
+				<span class="tag is-success is-large">请选择滤镜</span>
+				<div class="select is-multiple is-success is-rounded">
+				<select name="from" required>
+					{% for i in list %}
+						{% if i == ff %}
+							<option value="{{i}}" selected>{{i}}</option>
+						{% else %}
+							<option value="{{i}}">{{i}}</option>
+						{% endif %}
+					{% endfor %}
+				</select>
+				</div>
+				<br><br>
+				<div id="file-js-example" class="file is-success is-medium is-centered has-name">
+				    <label class="file-label">
+						<input class="file-input" type="file" name="f" required accept="image/*">
+						<span class="file-cta">
+							<span class="file-icon">
+								<i class="fas fa-upload"></i>
+							</span>
+							<span class="file-label">
+								选择图片
+							</span>
+						</span>
+						<span class="file-name">
+							No file uploaded
+						</span>
+					</label>
+				</div>
+				<script>
+					const fileInput = document.querySelector('#file-js-example input[type=file]');
+					fileInput.onchange = () => {
+						if (fileInput.files.length > 0) {
+							const fileName = document.querySelector('#file-js-example .file-name');
+							fileName.textContent = fileInput.files[0].name;
+						}
+					}
+				</script>
+				<br>
+				<input type="submit" value="提交" class="column button is-rounded is-success is-medium is-three-fifths">
+				<br>
+				<h3>滤镜前</h3>
+				<img src="{{fro}}" alt="滤镜前">
+				<h3>滤镜后</h3>
+				<img src="{{tt}}" alt="滤镜后">
+			</center>
+		</form>
+	</body>
+</html>

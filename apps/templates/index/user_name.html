@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{name}}的个人页面</title>
+    <style>
+        h1 {
+            color: #39DFFF;
+        }
+        .zhe {
+            text-align: center;
+            color: #1874CD;
+            text-size:20px;
+        }
+        .x {
+            text-align: center;
+        }
+        a {
+            color: red;
+            text-decoration : none;
+        }
+    </style>
+</head>
+<body>
+    <a href="/" style="color:green;padding-left:20%;">返回</a>
+    <center>
+        <h1>欢迎来到您的个人页面</h1>
+        <div class="zhe">
+            <span>用户名 : {{user["用户名"]}}</span>
+            <br><br>
+            <span>用户id : {{user["用户id"]}}</span>
+            <br><br>
+            {% if user["简介"] != "" %}
+                <span>生日 : {{user["生日"]}}</span><br><br>
+                <span>年龄 : {{user["年龄"]}}</span><br><br>
+                <span>个人简介 : {{user["简介"]}}</span><br><br>
+                <span>手机号 : {{user["手机号"]}}</span><br><br>
+                <span>地址 : {{user["地址"]}}</span><br><br>
+                <span>邮箱 : {{user["邮箱"]}}</span><br><br>
+            {% else %}
+                <a href="/Personal_Information" style="color:red;text-decoration: none;"><h5>您未填写个人信息点击这里去填写</h5></a>
+                <br><br>
+            {% endif %}
+        </div>
+        <div class="x">
+            <a href="/login_t">退出登录</a>
+            <a href="/x_Personal_Information">修改个人信息</a>
+            <a href="/x_password">修改密码</a>
+            <a href="/zx_login">注销账号</a>
+        </div>
+    </center>
+</body>
+</html>

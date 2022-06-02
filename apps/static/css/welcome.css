@@ -1,0 +1,86 @@
+/* 以下预留 */
+
+/* 清除所有标签默认间距，设置为0(margin:边距) */
+*{
+    margin: 0;
+}
+
+/* 设置HTML最小高度占满整屏幕 */
+html, body{
+	min-height: 100%;
+}
+
+/* 设置音乐图标的位置 */
+audio{
+    /* 上外边距80像素 */
+    margin-top: 80px;
+    /* 左外边距是外层元素的70% */
+    margin-left:70%;
+}
+
+/* 设置h3标签样式 */
+h3{
+    /* 文本颜色为金色 */
+    color: gold;
+    /* 文本靠右显示 */
+    text-align: right;
+    /* 下外边距(bottom：底部) */
+    margin-bottom: 480px;
+}
+
+/* 设置背景 */
+body{
+    /* 背景图片*/
+    background-image: url("../images/welcome.jpg");
+    /* 背景图片覆盖整个背景区(cover：覆盖)*/
+    background-size: cover;
+}
+
+/*设置<p>标签样式*/
+p{
+    /* 设置文本颜色为白色：white */
+    color: white;
+    /* 设置字体大小为：44px */
+    font-size: 23px;
+    /* 设置标签到左边标签的距离 */
+    margin-left: 185px;
+    width: 250px;
+}
+
+/* <a>标签的统一样式 */
+a{
+    /* 文本颜色为白色 */
+    color: white;
+    /* 字体大小 */
+    font-size: 23px;
+    /* 文本居中显示 */
+    text-align: center;
+    /* 左外边距 */
+    margin-left: 150px;
+    /* 背景图片大小 */
+	background-size: 100% 100%;
+    /* 设置<a>标签类型 */
+	display: block;
+	/* 内边距(边框与内容之间的距离) */
+    padding: 16px 10px;;
+    /* 上外边距 */
+    margin-top: 5px;
+    /* <a>标签的宽度 */
+    width: 250px;
+}
+
+
+/* 清除<a>标签超链接默认样式 */
+a{
+    text-decoration: none;
+}
+
+/* 给class="a1"的这类标签设置背景图片为bg1.jpg*/
+.a1{
+    background-image: url("../images/bg1.jpg");
+}
+
+/* 给class="a2"的这类标签设置背景图片为bg2.jpg*/
+.a2{
+    background-image: url("../images/bg2.jpg");
+}
