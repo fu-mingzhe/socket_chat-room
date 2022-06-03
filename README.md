@@ -16,6 +16,7 @@ flask-简易的多功能网站
       <li>login         登录程序</li>
       <li>...           ......</li>
       <li>templates     模板文件</li>
+      <li>static        资源文件</li>
     </ul>
   </li>
   <li>static
