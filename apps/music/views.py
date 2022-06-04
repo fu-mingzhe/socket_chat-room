@@ -26,9 +26,10 @@ def get_music_name(name):
 
 @app_music.route("/music_get",methods=['GET'])
 def zhu():
-    if not session:
-        session['deng'] = 'weidenglu'
+    if session.get('gly') == None:
         session['gly'] = 'False'
+    if session.get('deng') == None:
+        session['deng'] = 'weidenglu'
         return redirect("/login")
     elif session['deng'] == 'yidenglu':
         history()
@@ -38,9 +39,10 @@ def zhu():
 
 @app_music.route('/get_music')
 def music():
-    if not session:
-        session['deng'] = 'weidenglu'
+    if session.get('gly') == None:
         session['gly'] = 'False'
+    if session.get('deng') == None:
+        session['deng'] = 'weidenglu'
         return redirect("/login")
     elif session['deng'] == 'yidenglu':
         history()

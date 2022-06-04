@@ -11,6 +11,7 @@ from .gui import app_gui
 from .filter import app_filter
 from .translate import app_translate
 from .test import app_test
+from .newfamily import app_newfamily
 from flask import *
 import qrcode
 
@@ -29,9 +30,10 @@ app.register_blueprint(app_gui)
 app.register_blueprint(app_filter)
 app.register_blueprint(app_translate)
 app.register_blueprint(app_test)
+app.register_blueprint(app_newfamily)
 
 
-DEBUG = True
+DEBUG = False
 HOST = "0.0.0.0"
 PORT = "5656"
 

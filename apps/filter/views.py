@@ -85,9 +85,10 @@ def lj(tp, lj, userName, bz=False):
 
 @app_filter.route("/filter",methods=["GET"])
 def dd():
-    if not session:
-        session['deng'] = 'weidenglu'
+    if session.get('gly') == None:
         session['gly'] = 'False'
+    if session.get('deng') == None:
+        session['deng'] = 'weidenglu'
         return redirect("/login")
     elif session['deng'] == 'yidenglu':
         history()

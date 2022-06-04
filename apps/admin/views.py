@@ -5,9 +5,10 @@ from . import *
 
 @app_admin.route('/admin',methods=['GET','POST'])
 def admin():
-    if not session:
-        session['deng'] = 'weidenglu'
+    if session.get('gly') == None:
         session['gly'] = 'False'
+    if session.get('deng') == None:
+        session['deng'] = 'weidenglu'
     if request.method == 'POST' or session.get("gly") == "True":
         if request.method == "POST":
             name = request.form['Name']
@@ -66,8 +67,8 @@ def admin():
                 password[i] = c
             return render_template("admin/admin1.html", user=a, passwordList=password)
         password = request.form['Password']
-        if name == 'fumingzhe':
-            if password == 'tiancai521':
+        if name in ADMIN_USER:
+            if password == ADMIN_USER[name]:
                 session['gly'] = 'True'
                 b = list(client.user.login.find())
                 a = {}
@@ -91,9 +92,10 @@ def admin():
 
 @app_admin.route('/admin1/<user_name>')
 def user_id(user_name):
-    if not session:
-        session['deng'] = 'weidenglu'
+    if session.get('gly') == None:
         session['gly'] = 'False'
+    if session.get('deng') == None:
+        session['deng'] = 'weidenglu'
     if session["gly"] == "True":
         nik = client.user.login.find_one({"用户名":user_name})
         if nik != None:

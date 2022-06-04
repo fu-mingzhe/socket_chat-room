@@ -4,9 +4,10 @@ from . import *
 
 @app_other.route("/other")
 def other():
-    if not session:
-        session['deng'] = 'weidenglu'
+    if session.get('gly') == None:
         session['gly'] = 'False'
+    if session.get('deng') == None:
+        session['deng'] = 'weidenglu'
         return redirect("/login")
     elif session['deng'] == 'yidenglu':
         history()
@@ -26,9 +27,10 @@ def other():
 
 @app_other.route("/Garbage_sorting",methods=["GET","POST"])
 def Garbage_sorting():
-    if not session:
-        session['deng'] = 'weidenglu'
+    if session.get('gly') == None:
         session['gly'] = 'False'
+    if session.get('deng') == None:
+        session['deng'] = 'weidenglu'
         return redirect("/login")
     elif session['deng'] == 'yidenglu':
         history()
@@ -42,9 +44,10 @@ def Garbage_sorting():
 
 @app_other.route("/moyu")
 def moyu():
-    if not session:
-        session['deng'] = 'weidenglu'
+    if session.get('gly') == None:
         session['gly'] = 'False'
+    if session.get('deng') == None:
+        session['deng'] = 'weidenglu'
         return redirect("/login")
     elif session['deng'] == 'yidenglu':
         history()
@@ -55,9 +58,10 @@ def moyu():
 
 @app_other.route("/douyin",methods=["GET","POST"])
 def douyin():
-    if not session:
-        session['deng'] = 'weidenglu'
+    if session.get('gly') == None:
         session['gly'] = 'False'
+    if session.get('deng') == None:
+        session['deng'] = 'weidenglu'
         return redirect("/login")
     elif session['deng'] == 'yidenglu':
         history()

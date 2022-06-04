@@ -5,9 +5,10 @@ from . import *
 
 @app_index.route('/',methods=['GET','POST'])
 def index():
-    if not session:
-        session['deng'] = 'weidenglu'
+    if session.get('gly') == None:
         session['gly'] = 'False'
+    if session.get('deng') == None:
+        session['deng'] = 'weidenglu'
         return redirect("/login")
     elif session['deng'] == 'yidenglu':
         history()
@@ -29,9 +30,10 @@ def user_name(name):
 
 @app_index.route('/Personal_Information',methods=["GET","POST"])
 def Personal_Information():
-    if not session:
-        session['deng'] = 'weidenglu'
+    if session.get('gly') == None:
         session['gly'] = 'False'
+    if session.get('deng') == None:
+        session['deng'] = 'weidenglu'
         return redirect("/login")
     elif session['deng'] == 'yidenglu':
         history()
@@ -61,9 +63,10 @@ def Personal_Information():
 
 @app_index.route('/x_Personal_Information')
 def x_Personal_Information():
-    if not session:
-        session['deng'] = 'weidenglu'
+    if session.get('gly') == None:
         session['gly'] = 'False'
+    if session.get('deng') == None:
+        session['deng'] = 'weidenglu'
         return redirect("/login")
     elif session['deng'] == 'yidenglu':
         history()
@@ -74,9 +77,10 @@ def x_Personal_Information():
 
 @app_index.route('/birthday')
 def birthday():
-    if not session:
-        session['deng'] = 'weidenglu'
+    if session.get('gly') == None:
         session['gly'] = 'False'
+    if session.get('deng') == None:
+        session['deng'] = 'weidenglu'
         return redirect("/login")
     elif session['deng'] == 'yidenglu':
         history()

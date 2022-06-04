@@ -18,10 +18,11 @@ def translate(_from,to,text):
 
 @app_translate.route('/translation')
 def Translation():
-    if not session:
-        session['deng'] = 'weidenglu'
+    if session.get('gly') == None:
         session['gly'] = 'False'
-        return redirect("login")
+    if session.get('deng') == None:
+        session['deng'] = 'weidenglu'
+        return redirect("/login")
     elif session['deng'] == 'yidenglu':
         history(session['userName'], request.url)
         b = ['中文','英文','日文','韩文','法文','西班牙文','葡萄牙文','德文','意大利文','俄文']
@@ -31,9 +32,10 @@ def Translation():
 
 @app_translate.route('/check_translation')
 def check_translation():
-    if not session:
-        session['deng'] = 'weidenglu'
+    if session.get('gly') == None:
         session['gly'] = 'False'
+    if session.get('deng') == None:
+        session['deng'] = 'weidenglu'
         return redirect("/login")
     elif session['deng'] == 'yidenglu':
         history(session['userName'], request.url)

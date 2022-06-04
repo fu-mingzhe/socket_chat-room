@@ -4,9 +4,10 @@ from . import *
 
 @app_login.route('/login',methods=['GET','POST'])
 def login():
-    if not session:
-        session['deng'] = 'weidenglu'
+    if session.get('gly') == None:
         session['gly'] = 'False'
+    if session.get('deng') == None:
+        session['deng'] = 'weidenglu'
     if request.method == 'POST':
         userName = request.form['Name']
         userPassword = request.form['Password']
@@ -46,9 +47,10 @@ def login():
 
 @app_login.route("/login_t")
 def login_t():
-    if not session:
-        session['deng'] = 'weidenglu'
+    if session.get('gly') == None:
         session['gly'] = 'False'
+    if session.get('deng') == None:
+        session['deng'] = 'weidenglu'
         abort(404)
     session.pop("userName")
     session["gly"] = 'False'
@@ -58,9 +60,11 @@ def login_t():
 
 @app_login.route('/zx_login',methods=["GET","POST"])
 def zx_login():
-    if not session:
-        session['deng'] = 'weidenglu'
+    if session.get('gly') == None:
         session['gly'] = 'False'
+    if session.get('deng') == None:
+        session['deng'] = 'weidenglu'
+        return redirect("/login")
     elif session['deng'] == 'yidenglu':
         if request.method == "POST":
             cc = client.user.login.find_one({"用户名":session["userName"]})
@@ -81,9 +85,11 @@ def zx_login():
 
 @app_login.route('/x_password',methods=["GET","POST"])
 def x_password():
-    if not session:
-        session['deng'] = 'weidenglu'
+    if session.get('gly') == None:
         session['gly'] = 'False'
+    if session.get('deng') == None:
+        session['deng'] = 'weidenglu'
+        return redirect("/login")
     elif session['deng'] == 'yidenglu':
         if request.method == "POST":
             cc = client.user.login.find_one({"用户名":session['userName']})

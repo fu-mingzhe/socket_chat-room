@@ -2,5 +2,6 @@
 /gui
 /__pycache__
 *.pyc
-
+/venv
+/text
 run.py

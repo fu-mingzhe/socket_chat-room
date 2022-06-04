@@ -5,9 +5,10 @@ from . import *
 
 @app_registration.route('/registration',methods=['GET','POST'])
 def registration():
-    if not session:
-        session['deng'] = 'weidenglu'
+    if session.get('gly') == None:
         session['gly'] = 'False'
+    if session.get('deng') == None:
+        session['deng'] = 'weidenglu'
     if request.method == 'POST':
         userName = request.form['Name']
         userPassword = request.form['Password']
