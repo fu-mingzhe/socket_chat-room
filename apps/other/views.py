@@ -20,7 +20,6 @@ def other():
             num += 1
             if num+1 > len(color_list):
                 num = 0
-        print(URL_DICT)
         return render_template('other/other.html',user_name=session["userName"],url_dict=URL_DICT),200
     else:
         return redirect("/login")
