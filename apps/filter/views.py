@@ -7,9 +7,9 @@ l = ['假日', '冬日', '初春', '日系', '暖色', '暴晒', '泛黄', '浓�
 
 def lj(tp, lj, userName, bz=False):
     num = userName
-    i1 = f'{directory}static/lj-images/'
-    lj1 = f'{directory}static/images-lj/'
-    f = f'{directory}static/filter/'
+    i1 = f'{directory}apps/static/lj-images/'
+    lj1 = f'{directory}apps/static/images-lj/'
+    f = f'{directory}apps/static/filter/'
     filter = ['假日', '冬日', '初春', '日系', '暖色', '暴晒', '泛黄', '浓烈', '清新', '漂染', '秋意', '美好', '蓝调', '阳光', '雾气', '黑白','怀旧','高级灰','旅程','冰美人','阿宝色','江南','故事','樱花','平静','唯美','自然美颜-自然','自然美颜-粉嫩','自然美颜-果冻','自然美颜-黑白','自然美颜-红润','自然美颜-糖水色','自然美颜-蜜粉','柔光美颜-柔和','柔光美颜-粉色','柔光美颜-果酱','柔光美颜-黑白','柔光美颜-日出','柔光美颜-甜蜜','柔光美颜-暮光','柔光美颜-唯美','莱卡-光泽','莱卡-和谐','莱卡-黑白']
     if lj in filter:
         def position(rgb):
@@ -102,9 +102,9 @@ def ddd():
     if request.method == "POST":
         history()
         f = request.files["f"]
-        f.save(f"{directory}static/lj-images/"+session["userName"]+".jpg")
+        f.save(f"{directory}/apps/static/lj-images/"+session["userName"]+".jpg")
         lj(session["userName"]+".jpg",request.form["from"],session["userName"],True)
-        from1 = "./static/lj-images/"+session["userName"]+".jpg"
-        to1 = "./static/images-lj/"+session["userName"]+".png"
+        from1 = "../../static/lj-images/"+session["userName"]+".jpg"
+        to1 = "../../static/images-lj/"+session["userName"]+".png"
         return render_template("filter/Filter1.html",list=l,ff=request.form["from"],fro=from1,tt=to1,user_name=session['userName']),200
     abort(404)
