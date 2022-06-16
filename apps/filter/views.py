@@ -84,7 +84,7 @@ def lj(tp, lj, userName, bz=False):
             img.save(lj1 + num + '.png')
 
 @app_filter.route("/filter",methods=["GET"])
-def filter():
+def dd():
     if session.get('gly') == None:
         session['gly'] = 'False'
     if session.get('deng') == None:
@@ -98,7 +98,7 @@ def filter():
 
 
 @app_filter.route("/check_filter",methods=["GET","POST"])
-def check_filter():
+def ddd():
     if request.method == "POST":
         history()
         f = request.files["f"]

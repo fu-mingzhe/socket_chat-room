@@ -1,7 +1,7 @@
 .idea
-/gui
-/__pycache__
+gui/
+*__pycache__/
 *.pyc
-/venv
-/text
+venv/
+text/
 run.py

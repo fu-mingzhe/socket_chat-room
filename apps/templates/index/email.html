@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>绑定邮箱</title>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="/static/css/bulma.min.css">
+
+</head>
+<body>
+<br>
+<a href="/" style="padding-left:20%;">返回</a>
+<center>
+    <h1 class="title is-1" style="padding-top:5%">邮箱绑定</h1>
+    <form action="/email" method="post">
+        <form action="/phone" method="post">
+            <div class="field has-addons" style="padding-left:35%;">
+                <div class="control">
+                    <input class="input" type="text" placeholder="邮箱" id="email" name="email" value="{{e}}" required>
+                </div>
+                <div class="control">
+                    <button class="button is-info" type="button">
+                        发送验证码
+                    </button>
+                </div>
+            </div>
+            <br>
+            <div class="field-body">
+                <span class="has-text-link has-text-centered has-text-weight-bold" style="padding-left: 30%">请输入验证码：</span>
+                <input type="text" class="column input is-link is-3 is-small" value="{{ve}}" name="v" minlength="6" maxlength="6" required >
+            </div>
+            <br><br>
+            <center><span class="has-text-danger">{{text}}</span></center>
+            <br><br>
+            <!--<span class="">验证码</span><input class="input" type="text" name="v" required minlength="6" maxlength="6"><span style="color:red;">{{text}}</span><br>-->
+            <center><input type="submit" class="column button is-5 is-medium is-rounded is-link" value="提交"></center>
+        </form>
+    </form>
+</center>
+</body>
+<script type="text/javascript">
+    var btn = document.querySelector('button');
+    var time = 120
+    btn.addEventListener('click',function(){
+        this.disabled = true;
+        var value = $("#email").val();
+        if(validatorEmail(value)){
+            $.post("/email_send",
+            {
+                email:value
+            },
+            function(data,status){
+                alert("验证码发送成功");
+            });
+            var timer = setInterval(function(){
+                if(time == 0){
+                    clearInterval(timer);
+                    btn.disabled = false;
+                    btn.innerHTML = "发送验证码";
+                    time = 120;
+                } else{
+                    btn.innerHTML = time + "秒之后重新发送";
+                    time--;
+                }
+            },1000)
+        }else{
+            alert("邮箱填写不符合要求");
+            btn.disabled = false;
+            btn.innerHTML = "发送验证码";
+            time = 120;
+        }
+    })
+    function validatorEmail(value){
+        eval("var reg = /^([a-zA-z0-9_\.\-])+\@(([a-zA-z0-9\-])+\.)+([z-zA-z0-9]{2,4})+$/;");
+        return RegExp(reg).test(value);
+    }
+</script>
+</html>

@@ -27,5 +27,14 @@
 		<!--<a href="/birthday">生日</a>-->
 		<a href="/other">其他</a>
     </div>
+    <div>
+        {% if info == 1 %}
+        <a href="/Personal_Information"><h1 class="title is-size-1 has-text-danger" style="text-align:center;padding-top:30px;">您未填写个人信息点击这里去填写</h1></a>
+        <br>
+        {% endif %}
+        {% if email == 1 %}
+        <a href="/email"><h1 class="title is-size-1 has-text-danger" style="text-align:center;padding-top:30px;">您还未绑定邮箱点击这里去绑定</h1></a>
+        {% endif %}
+    </div>
 </body>
 </html>

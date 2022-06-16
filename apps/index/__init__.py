@@ -3,6 +3,7 @@
 from flask import *
 import datetime
 from main_settings import *
+import random
 
 
 app_index = Blueprint("main_index",__name__)

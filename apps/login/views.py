@@ -23,11 +23,14 @@ def login():
                 if s["权限"] == 3:
                     session['deng'] = "yidenglu"
                     session['userName'] = userName
+                    info = 0
+                    email = 0
                     ad = client.user.login.find_one({"用户名":session["userName"]})
-                    age = ad["邮箱"]
-                    if age == "":
-                        return render_template('login/h1.html',t=1,name='欢迎'+session['userName']+'登录',user_name=session["userName"])
-                    return render_template('login/h.html',t=1,name='欢迎'+session['userName']+'登录',user_name=session["userName"])
+                    if ad["生日"] == "":
+                        info = 1
+                    if ad["邮箱"] == "":
+                        email = 1
+                    return render_template('login/h.html',t=1,name='欢迎'+session['userName']+'登录',user_name=session["userName"],info=info,email=email)
                 else:
                     if s["权限"] == 1:
                         return render_template('login/login.html',text='您的账号未开通使用权限!',text1='请联系管理员~',password=userPassword,username=userName)

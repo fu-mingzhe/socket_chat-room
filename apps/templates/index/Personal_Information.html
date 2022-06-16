@@ -35,6 +35,7 @@
 <body>
     <div class="page-dog-wrap">
         {% if type == 1 %}
+        <a href="/">返回</a>
         <center>
             <h1>个人信息填写</h1>
                 <form action="/Personal_Information" method="post">
@@ -42,8 +43,6 @@
                     生日：<input type="date" name="sr" required>
                     <br>
                     手机号：<input type="text" placeholder="请输入手机号" name="phone" minlength="11" maxlength="11" required>
-                    <br>
-                    邮箱：<input type="email" placeholder="请输入邮箱" name="email" required>
                     <br>
                     地址：
                     <br>
@@ -65,8 +64,6 @@
                 生日：<input type="date" name="sr" required value="{{cir['生日']}}">
                 <br>
                 手机号：<input type="text" placeholder="请输入手机号" name="phone" minlength="11" value="{{cir['手机号']}}" maxlength="11" required>
-                <br>
-                邮箱：<input type="email" placeholder="请输入邮箱" value="{{cir['邮箱']}}" name="email" required>
                 <br>
                 地址：
                 <br>

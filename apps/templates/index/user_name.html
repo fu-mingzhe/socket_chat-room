@@ -36,17 +36,30 @@
                 <span>个人简介 : {{user["简介"]}}</span><br><br>
                 <span>手机号 : {{user["手机号"]}}</span><br><br>
                 <span>地址 : {{user["地址"]}}</span><br><br>
-                <span>邮箱 : {{user["邮箱"]}}</span><br><br>
             {% else %}
                 <a href="/Personal_Information" style="color:red;text-decoration: none;"><h5>您未填写个人信息点击这里去填写</h5></a>
                 <br><br>
             {% endif %}
+            {% if user["邮箱"] == "" %}
+                <a href="/email"><h5>您还未绑定邮箱点击这里去绑定</h5></a><br><br>
+            {% else %}
+                <span>邮箱 : {{user["邮箱"]}}</span><br><br>
+            {% endif %}
         </div>
         <div class="x">
             <a href="/login_t">退出登录</a>
-            <a href="/x_Personal_Information">修改个人信息</a>
+            {% if user["生日"] == "" %}
+                <a href="/x_Personal_Information">填写个人信息</a>
+            {% else %}
+                <a href="/x_Personal_Information">修改个人信息</a>
+            {% endif %}
             <a href="/x_password">修改密码</a>
             <a href="/zx_login">注销账号</a>
+            {% if user["邮箱"] == "" %}
+                <a href="/email">绑定邮箱</a>
+            {% else %}
+                <a href="/email">更改邮箱</a>
+            {% endif %}
         </div>
     </center>
 </body>
