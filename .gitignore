@@ -3,5 +3,5 @@ gui/
 *__pycache__/
 *.pyc
 venv/
-text/
+test/
 run.py
