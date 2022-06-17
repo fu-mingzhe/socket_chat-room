@@ -108,6 +108,7 @@ flask-简易的多功能网站
 ### 默认的管理员用户名为amdin，密码为123456
 ![管理员](https://images.gitee.com/uploads/images/2022/0602/180838_f1ab79bf_11085717.png)
 ### 请把你要开通使用权限的用户选中，然后点击提交
+![请把你要开通使用权限的用户选中，然后点击提交](https://images.gitee.com/uploads/images/2022/0617/110207_bdd1f509_11085717.png)
 ## 其他说明
 ### 如果你不想使用默认的管理员用户名和密码，请打开项目的main_settings.py配置文件
 ![配置文件](https://images.gitee.com/uploads/images/2022/0602/171726_8121bf68_11085717.png)
