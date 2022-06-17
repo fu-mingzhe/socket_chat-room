@@ -92,10 +92,24 @@ flask-简易的多功能网站
 ![按下键盘上的M键然后回车](https://images.gitee.com/uploads/images/2022/0602/173425_f0151338_11085717.png)
 ### 如果状态为正在运行就右击它然后点重新启动，如果为已停止就开始
 ![点击](https://images.gitee.com/uploads/images/2022/0602/174025_d682ec3d_11085717.png)
-
+## 5.开启邮箱服务
+### 进入QQ邮箱后依次点击头像>设置
+![进入QQ邮箱后依次点击头像>设置](https://images.gitee.com/uploads/images/2022/0617/111525_87706f89_11085717.png)
+### 找到第三方服务下的生成授权码或开启服务并记住授权码(注意注册QQ邮箱后14天才可以开启本服务)
+![找到第三方服务下的生成授权码或开启服务](https://images.gitee.com/uploads/images/2022/0617/111924_3345b715_11085717.png)
 # 注意 你需要完成安装教程的所有步骤才可以运行
 
 ## 使用说明
+### 打开main_settings.py配置文件找到第34行
+![打开main_settings.py配置文件找到第34行](https://images.gitee.com/uploads/images/2022/0617/112723_f150db2f_11085717.png)
+### 填写'你的QQ邮箱'
+### 填写"你的授权码"
+### 填写"SMTP服务器地址" QQ邮箱为smtp.qq.com
+```
+sender = '2372769798@qq.com'
+password = "dt************cg"
+smtp_address = "smtp.qq.com"
+```
 ### 如要运行此项需要运行main_app.py
 ![运行](https://images.gitee.com/uploads/images/2022/0602/180135_6c9b45f1_11085717.png)
 ### 运行后在浏览器输入http://127.0.0.1:5656或http://{你的IP地址}:5656
